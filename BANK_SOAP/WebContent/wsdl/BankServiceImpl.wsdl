@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.soapbank.sd.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.soapbank.sd.com" xmlns:intf="http://service.soapbank.sd.com" xmlns:tns1="http://beans.soapbank.sd.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.soapbank.sd.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://beans.soapbank.sd.com"/>
+   <element name="deposit">
+    <complexType>
+     <sequence>
+      <element name="ac" type="xsd:int"/>
+      <element name="money" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="depositResponse">
+    <complexType>
+     <sequence>
+      <element name="depositReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllAccounts">
+    <complexType/>
+   </element>
+   <element name="getAllAccountsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllAccountsReturn" type="tns1:Account"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setBalance">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="money" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="setBalanceReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="withdraw">
+    <complexType>
+     <sequence>
+      <element name="ac" type="xsd:int"/>
+      <element name="money" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="withdrawResponse">
+    <complexType>
+     <sequence>
+      <element name="withdrawReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalance">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccount">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountReturn" type="tns1:Account"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAccount">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="pass" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="createAccountReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://beans.soapbank.sd.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Account">
+    <sequence>
+     <element name="balance" nillable="true" type="xsd:double"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="pass" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="depositRequest">
+
+      <wsdl:part element="impl:deposit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="depositResponse">
+
+      <wsdl:part element="impl:depositResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccountResponse">
+
+      <wsdl:part element="impl:createAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="withdrawRequest">
+
+      <wsdl:part element="impl:withdraw" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setBalanceRequest">
+
+      <wsdl:part element="impl:setBalance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllAccountsResponse">
+
+      <wsdl:part element="impl:getAllAccountsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setBalanceResponse">
+
+      <wsdl:part element="impl:setBalanceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceRequest">
+
+      <wsdl:part element="impl:getBalance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountRequest">
+
+      <wsdl:part element="impl:getAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllAccountsRequest">
+
+      <wsdl:part element="impl:getAllAccounts" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccountRequest">
+
+      <wsdl:part element="impl:createAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="withdrawResponse">
+
+      <wsdl:part element="impl:withdrawResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountResponse">
+
+      <wsdl:part element="impl:getAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceResponse">
+
+      <wsdl:part element="impl:getBalanceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BankServiceImpl">
+
+      <wsdl:operation name="deposit">
+
+         <wsdl:input message="impl:depositRequest" name="depositRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:depositResponse" name="depositResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllAccounts">
+
+         <wsdl:input message="impl:getAllAccountsRequest" name="getAllAccountsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllAccountsResponse" name="getAllAccountsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setBalance">
+
+         <wsdl:input message="impl:setBalanceRequest" name="setBalanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setBalanceResponse" name="setBalanceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="withdraw">
+
+         <wsdl:input message="impl:withdrawRequest" name="withdrawRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:withdrawResponse" name="withdrawResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccount">
+
+         <wsdl:input message="impl:getAccountRequest" name="getAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccountResponse" name="getAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccount">
+
+         <wsdl:input message="impl:createAccountRequest" name="createAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createAccountResponse" name="createAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BankServiceImplSoapBinding" type="impl:BankServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deposit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="depositRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="depositResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllAccounts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllAccountsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllAccountsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setBalanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setBalanceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="withdraw">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="withdrawRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="withdrawResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBalanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBalanceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BankServiceImplService">
+
+      <wsdl:port binding="impl:BankServiceImplSoapBinding" name="BankServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/BANK_SOAP/services/BankServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

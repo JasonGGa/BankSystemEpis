@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/sd/soapbank/beans/Account.java=UTF-8
+encoding//src/com/sd/soapbank/service/BankServiceImpl.java=UTF-8
+encoding//src/com/sd/soapbank/service/BankServiceImplService.java=UTF-8
+encoding//src/com/sd/soapbank/service/BankServiceImplServiceLocator.java=UTF-8
+encoding//src/com/sd/soapbank/service/BankServiceImplSoapBindingStub.java=UTF-8
